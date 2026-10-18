@@ -16,3 +16,13 @@ if file:
         f.write(file.getbuffer())
     st.success(f"Archivo {file.name} se guardo correctamente.")
 
+see_docs = st.button("Ver documentos", type="primary")
+if see_docs:
+    files = [f for f in ruta.iterdir() if f.is_file()]
+    
+    st.subheader("Archivos guardados")
+    if files:
+        for f in files:
+            st.write(f.name)
+    else:
+        st.info("No hay archivos guardados.")
